@@ -22,14 +22,14 @@
 
 .hero h1 {
   font-size: 38px;
-  color: #d63384;
+  color: #d88ba3;
 }
 
 .hero-buttons button {
   margin: 5px;
   padding: 10px 20px;
   border: none;
-  background: #ff4d88;
+  background: #d88ba3;
   color: white;
   border-radius: 8px;
 }
