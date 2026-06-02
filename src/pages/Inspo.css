@@ -1,0 +1,65 @@
+
+.inspo-page {
+  background-image: url("/src/data/hb.pozadina.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.inspo-container {
+  width: 100%;
+}
+
+.gallery {
+  columns: 4;
+  column-gap: 16px;
+  padding-top: 40px;
+}
+
+.card {
+  position: relative;
+  margin-bottom: 16px;
+  break-inside: avoid;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+
+.pin-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #a94753;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.card:hover .pin-btn {
+  opacity: 1;
+}
+
+.pinned {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+}
