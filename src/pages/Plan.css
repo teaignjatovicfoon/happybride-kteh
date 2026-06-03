@@ -1,0 +1,169 @@
+
+
+.plan-container { 
+    background-color: #fdf8f5; 
+    min-height: 100vh; 
+    padding-top: 40px; 
+    font-family: sans-serif; }
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 320px;
+    gap: 30px;
+    padding: 0 50px;
+    align-items: start;
+}
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-dark { 
+    background-color: #a65d5d; 
+    padding: 20px; 
+    border-radius: 15px; 
+    color: white; 
+    margin-bottom: 20px; }
+
+.card-light { 
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    color: #7a3131; }
+
+.card-title { 
+    border-bottom: 1px solid #c98a8a; 
+    padding-bottom: 10px; 
+    margin-bottom: 15px; 
+    text-align: center; }
+
+.input-group { 
+    display: flex; 
+    gap: 5px; 
+    margin-bottom: 15px; }
+
+.input-field { 
+    padding: 8px; 
+    border-radius: 5px; 
+    border: none; 
+    outline: none; 
+    width: 100%; }
+.small-input { 
+    width: 80px; }
+.add-button { 
+    background-color: #7a3131;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    padding: 0 15px; 
+    font-weight: bold; }
+.item-list { 
+    list-style: none; 
+    padding: 0; }
+.list-item { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 10px; 
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 8px; 
+    border-radius: 5px; }
+.confirmed { 
+    text-decoration: line-through; 
+    opacity: 0.6; }
+.del-btn { 
+    background: none; 
+    border: none; 
+    color: white; 
+    cursor: pointer; 
+    font-weight: bold; }
+.total-box { 
+    margin-top: 15px; 
+    font-weight: bold; 
+    text-align: right; 
+    border-top: 1px solid #c98a8a; 
+    padding-top: 10px; }
+.filter-buttons { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 10px; 
+    justify-content: center; }
+.filter-buttons button { 
+    background: none; 
+    border: 1px solid white; 
+    color: white; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    padding: 2px 10px; 
+    font-size: 0.8rem; }
+.filter-buttons button.active { 
+    background: white; 
+    color: #a65d5d; }
+
+.progress-card {
+    background-color: #f7dada;
+    padding: 30px;
+    border-radius: 20px;
+    color: #7a3131;
+    text-align: center;
+    min-height: 180px;
+}
+.progress-circle { 
+    width: 120px; 
+    height: 120px; 
+    border: 8px solid #a65d5d; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 20px auto; }
+.percentage { 
+    font-size: 2rem; 
+    font-weight: bold; }
+.advice-text { 
+    font-style: italic; 
+    font-size: 0.9rem; 
+    text-align: center; }
+.calendar-box {
+    background-color: #d9b3b3;
+    padding: 20px;
+    border-radius: 15px;
+    color: #7a3131;
+}
+.calendar-grid { 
+    display: grid; 
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 5px; 
+    text-align: center; 
+    font-size: 0.8rem;
+    margin-top: 10px; }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 15px;
+  padding: 8px;
+
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-weight: bold;
+}
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

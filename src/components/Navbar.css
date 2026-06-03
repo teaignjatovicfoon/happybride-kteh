@@ -60,3 +60,11 @@
 .nav-links a:hover::after {
   width: 100%;
 }
+.nav-links a.active-link {
+  color: #d88ba3;
+  font-weight: bold;
+}
+
+.nav-links a.active-link::after {
+  width: 100%;
+}
