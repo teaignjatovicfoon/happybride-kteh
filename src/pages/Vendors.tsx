@@ -1,4 +1,13 @@
 import "./Vendors.css";
+import { useEffect, useState } from "react";
+
+interface ApiVendor {
+  id: number;
+  name: string;
+  email: string;
+}
+
+
 
 const vendorCategories = [
   {
@@ -71,7 +80,15 @@ const vendorCategories = [
   },
 ];
 
+
 function Vendors() {
+   const [apiVendors, setApiVendors] = useState<ApiVendor[]>([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => setApiVendors(data));
+  }, []);
   return (
     <div className="vendors-page">
       <h1>Wedding Vendors</h1>
@@ -96,6 +113,18 @@ function Vendors() {
           </div>
         </section>
       ))}
+      <h2 className="api-title">Recommended Vendors (API)</h2>
+
+<div className="vendor-grid">
+  {apiVendors.slice(0, 6).map((vendor) => (
+    <div key={vendor.id} className="vendor-card">
+      <div className="vendor-info">
+        <h3>{vendor.name}</h3>
+        <p>{vendor.email}</p>
+      </div>
+    </div>
+  ))}
+</div>
     </div>
   );
 }
