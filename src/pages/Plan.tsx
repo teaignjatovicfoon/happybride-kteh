@@ -2,50 +2,10 @@ import React, { useState, useEffect, useMemo } from "react";
 import "./Plan.css";
 import CustomButton from "../components/CustomButton";
 import InputField from "../components/InputField";
+import WeddingManager from "../models/WeddingModel";
+import type { Guest, Expense, Task } from "../models/WeddingModel";
 
 
-interface Guest {
-  id: number;
-  name: string;
-  confirmed: boolean;
-}
-
-interface Expense {
-  id: number;
-  item: string;
-  amount: number;
-}
-
-interface Task {
-  id: number;
-  text: string;
-  done: boolean;
-}
-
-interface IWeddingManager  {
-  calculateTotal(expenses: Expense[]): number;
-  formatPrice(amount: number): string;
-  calculateProgress(guests: Guest[]): number;
-}
-
-
-class WeddingManager implements IWeddingManager {
-  calculateTotal(expenses: Expense[]): number {
-    return expenses.reduce((sum, curr) => sum + curr.amount, 0);
-  }
-
-  formatPrice(amount: number): string {
-    return amount.toLocaleString() + " €";
-  }
-
-  calculateProgress(guests: Guest[]): number {
-    if (guests.length === 0) return 0;
-
-    const confirmed = guests.filter((g) => g.confirmed).length;
-
-    return Math.round((confirmed / guests.length) * 100);
-  }
-}
 
 function Plan() {
  
