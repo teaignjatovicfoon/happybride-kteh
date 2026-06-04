@@ -2,49 +2,10 @@ import React, { useState, useEffect, useMemo } from "react";
 import "./Plan.css";
 import CustomButton from "../components/CustomButton";
 import InputField from "../components/InputField";
-
-interface Guest {
-  id: number;
-  name: string;
-  confirmed: boolean;
-}
-
-interface Expense {
-  id: number;
-  item: string;
-  amount: number;
-}
-
-interface Task {
-  id: number;
-  text: string;
-  done: boolean;
-}
-
-interface IWeddingManager  {
-  calculateTotal(expenses: Expense[]): number;
-  formatPrice(amount: number): string;
-  calculateProgress(guests: Guest[]): number;
-}
+import WeddingManager from "../models/WeddingModel";
+import type { Guest, Expense, Task } from "../models/WeddingModel";
 
 
-class WeddingManager implements IWeddingManager {
-  calculateTotal(expenses: Expense[]): number {
-    return expenses.reduce((sum, curr) => sum + curr.amount, 0);
-  }
-
-  formatPrice(amount: number): string {
-    return amount.toLocaleString() + " €";
-  }
-
-  calculateProgress(guests: Guest[]): number {
-    if (guests.length === 0) return 0;
-
-    const confirmed = guests.filter((g) => g.confirmed).length;
-
-    return Math.round((confirmed / guests.length) * 100);
-  }
-}
 
 function Plan() {
  
@@ -193,8 +154,7 @@ const deleteTask = (id: number) => {
   </button>
 
   
-</div>
-           
+</div>  
 
             <form onSubmit={handleAddGuest} className="input-group">
               <InputField
@@ -241,10 +201,11 @@ const deleteTask = (id: number) => {
     Prev
   </button>
 
+  {filteredGuests.length > 0 && (
   <span>
     {currentPage}/{totalPages}
   </span>
-
+)}
   <button
     type="button"
     disabled={currentPage === totalPages}
@@ -259,32 +220,27 @@ const deleteTask = (id: number) => {
             <h3 className="card-title">Budžet</h3>
 
             <form onSubmit={handleAddExpense} className="input-group">
-              <input
-                className="input-field"
-                value={expenseName}
-                onChange={(e) => setExpenseName(e.target.value)}
-                placeholder="Npr. Restoran"
+              <InputField
+              value={expenseName}
+              onChange={(e) => setExpenseName(e.target.value)}
+              placeholder="Npr. Restoran"
               />
 
-              <input
-                className="input-field small-input"
-                type="number"
-                value={expenseVal}
-                onChange={(e) =>
-                  setExpenseVal(
-                    e.target.value === ""
-                      ? ""
-                      : Number(e.target.value)
-                  )
-                }
-                placeholder="€"
-              />
+              <InputField
+              value={expenseVal}
+              type="number"
+              onChange={(e) => setExpenseVal(e.target.value === "" ? "": 
+                Number(e.target.value)
+              ) 
+            }
+            placeholder="€"
+            />
 
              <CustomButton
-  text="+"
-  type="submit"
-  className="add-button"
-/>
+             text="+"
+             type="submit"
+             className="add-button"
+             />
             </form>
 
             <ul className="item-list">
@@ -313,7 +269,6 @@ const deleteTask = (id: number) => {
 
         </div>
 
-        {/* SREDINA */}
         <div>
           <div className="progress-card">
             <h3>Planning Progress</h3>
@@ -328,26 +283,23 @@ const deleteTask = (id: number) => {
           </div>
         </div>
 
-        {/* DESNA KOLONA */}
         <div className="sidebar">
 
           <div className="card-light">
-  <h3>To Do List</h3>
+            <h3>To Do List</h3>
+            <form onSubmit={addTask} className="input-group">
+              <InputField
+              value={taskInput}
+              placeholder="Nova obaveza..."
+              onChange={(e) => setTaskInput(e.target.value)}
+              />
 
-  <form onSubmit={addTask} className="input-group">
-    <input
-      className="input-field"
-      placeholder="Nova obaveza..."
-      value={taskInput}
-      onChange={(e) => setTaskInput(e.target.value)}
-    />
-
-    <CustomButton
-  text="+"
-  type="submit"
-  className="add-button"
-/>
-  </form>
+              <CustomButton
+              text="+"
+              type="submit"
+              className="add-button"
+              />
+        </form>
 
   <ul className="item-list">
     {tasks.map((task) => (

@@ -11,14 +11,16 @@ function InputField({
   onChange,
   type = "text",
 }: Props) {
-  return (
-    <input
-      value={value}
-      placeholder={placeholder}
-      onChange={onChange}
-      type={type}
-    />
-  );
+  
+    return (
+  <input
+    className="input-field"
+    value={value}
+    placeholder={placeholder}
+    onChange={onChange}
+    type={type}
+  />
+);
 }
 
 export default InputField;
