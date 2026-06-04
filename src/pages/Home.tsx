@@ -7,7 +7,6 @@ function Home() {
   return (
     <div className="home">
 
-      {/* HERO */}
       <section className="hero">
         <div className="hero-content">
           <h1>Your perfect wedding is waiting for you</h1>
@@ -26,7 +25,6 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURES */}
       <section className="features">
         <h2>Everything you can do</h2>
 
@@ -37,7 +35,6 @@ function Home() {
         </div>
       </section>
 
-      {/* PREVIEW SECTION */}
       <section className="preview">
         <h2>Most popular</h2>
 
@@ -48,7 +45,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="cta">
         <h2>Start planing today</h2>
         <button onClick={() => navigate("/plan")}>

@@ -10,8 +10,8 @@ import type { Guest, Expense, Task } from "../models/WeddingModel";
 function Plan() {
  
   const [guests, setGuests] = useState<Guest[]>([]);
-  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [guestInput, setGuestInput] = useState("");
+  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [expenseName, setExpenseName] = useState("");
   const [expenseVal, setExpenseVal] = useState<number | "">("");
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -167,7 +167,7 @@ const deleteTask = (id: number) => {
               text="+"
               type="submit"
               className="add-button"
-/>
+              />
             </form>
 
             <ul className="item-list">
